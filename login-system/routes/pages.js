@@ -24,5 +24,12 @@ router.get("/home", userContoller.isLoggedIn, (req, res) => {
     res.redirect("/login");
   }
 });
+router.get("/companyDash",userContoller.isLoggedIn, (req,res) =>{
+  if(req.user){
+    res.render("companyDash", {user: req.user});
+  } else {
+    res.redirect("/login");
+  }
+});
 
 module.exports = router;

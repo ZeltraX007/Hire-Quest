@@ -56,6 +56,26 @@ form .data input{
   border: 1px solid silver;
 }
 
+form .radio input{
+  height: auto;
+  width: auto;
+}
+
+form .radio{
+  display: flex;
+  justify-content: space-around;
+}
+
+form .radio>div{
+  display: flex;
+}
+
+form .radio label{
+  margin-left: 1rem;
+  display: grid;
+  align-items: center;
+}
+
 form .data input:focus{
   border-color: #5199E4;
   border-bottom-width: 2px;

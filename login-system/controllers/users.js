@@ -12,7 +12,7 @@ const db = mysql.createConnection({
 
 exports.login = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password, acctype} = req.body;
     if (!email || !password) {
       return res.status(400).render("login", {
         msg: "Please Enter Your Email and Password",
@@ -21,9 +21,10 @@ exports.login = async (req, res) => {
     }
 
     db.query(
-      "select * from users where email=?",
-      [email],
+      "select * from users where email=? AND acctype=?",
+      [email,acctype],
       async (error, result) => {
+        console.log(acctype);
         console.log(result);
         if (result.length <= 0) {
           return res.status(401).render("login", {
@@ -50,6 +51,11 @@ exports.login = async (req, res) => {
               httpOnly: true,
             };
             res.cookie("hire", token, cookieOptions);
+            if(acctype == "company")
+            res.status(200).redirect("/companyDash");
+            else if(acctype == "college")
+            res.status(200).redirect("/profile");
+            else
             res.status(200).redirect("/home");
           }
         }
@@ -61,7 +67,7 @@ exports.login = async (req, res) => {
 };
 exports.register = (req, res) => {
   console.log(req.body);
-  const { name, email, password, confirm_password } = req.body;
+  const { name, email, password, confirm_password,acctype } = req.body;
   db.query(
     "select email from users where email=?",
     [email],
@@ -85,7 +91,7 @@ exports.register = (req, res) => {
 
       db.query(
         "insert into users set ?",
-        { name: name, email: email, pass: hashedPassword },
+        { name: name, email: email, pass: hashedPassword, acctype : acctype},
         (error, result) => {
           if (error) {
             console.log(error);
@@ -97,6 +103,7 @@ exports.register = (req, res) => {
           }
         }
       );
+      db.query()
     }
   );
 };
