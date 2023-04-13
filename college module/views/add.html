@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Create Student Account</title>
+    <h3>COLLEGE</h3>
+</head>
+<body>
+    <div class="side-menu">
+        <div class ="brand-name">
+          <img src="logo.png" alt="Logo" style="width: 100%;">
+        </div>
+        <ul>
+            <li><a href="index.html" class="link_a">HOME</a></li>
+            <li><a href="checkStudents" class="link_a">STUDENT DETAILS</a></li>
+            <li><a href="add.html" class="link_a">CREATE ACCOUNT</a></li>
+            <li><a href="editStudent" class="link_a">EDIT ACCOUNT</a></li>
+            <li><a href="deleteStudents" class="link_a">DELETE ACCOUNT</a></li>
+        </ul>
+       
+       
+    </div>
+    <div style="text-align: center; padding-left: 20%; padding-right: 10%;padding-top: 3%;"class="fixed-top"><h2>Create an Accoount</h2></div>
+<div style="text-align: center; padding-left: 30%; padding-right: 10%;padding-top: 5%;">
+    <form class="row g-3" action="/addStudent" method="post" enctype="multipart/form-data">
+  <div class="col-md-10">
+    <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" pattern="[A-Za-z]" required>
+  </div>
+  <div class="col-md-10" >
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male">
+    <label class="form-check-label" for="inlineRadio1">Male</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female">
+    <label class="form-check-label" for="inlineRadio2">Female</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="other" >
+    <label class="form-check-label" for="inlineRadio3">Other</label>
+  </div>
+</div>  
+<div class="col-md-5">
+  <input type="number" class="form-control" id="number" name="phone" placeholder="Mobile Number" min="10" max="10" required>
+</div>
+  <div class="col-5">
+    <input type="email" class="form-control" id="email" name="email"placeholder="Email" required>
+  </div>
+  <div class="col-md-5">
+    <label for="DOB" class="form-label">Date of Birth</label>
+    <input type="date" class="form-control" id="DOB" name="DOB" placeholder="Date Of Birth" required>
+  </div>
+  <div class="col-md-5">
+    <label for="Graduation" class="form-label">Year of Graduation</label>
+    <input type="date" class="form-control" id="Graduation" name="graduation" placeholder="Date Of Birth" required>
+  </div>
+  <div class="col-10">
+    <input type="text" class="form-control" id="address" name="address"placeholder="Address" required>
+  </div>
+  <div class="col-md-4">
+    <input type="text" class="form-control" id="state" name="state"placeholder="State"required>
+  </div>
+  <div class="col-md-4">
+    <input type="text" class="form-control" id="city" name="city"placeholder="City" required>
+  </div>
+  <div class="col-md-2" required>
+    <input type="number" class="form-control" id="zip" placeholder="Zip Code" required>
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+    </div>
+  </div>
+  <div class="col-2">
+    <label for ="cv">Upload Resume</label>
+    <input type="file" id ="cv"class="form-control-file" name="cv" required>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </div>
+</form>
+</div>
+</body>
+</html>
+
+
+
